@@ -1,6 +1,8 @@
 # M14-Tech-Blog
 Full Stack Web Application. Allows user to log in and make social media posts. MVC Practice
 
+time: 2:57
+
 # 14 Model-View-Controller (MVC): Tech Blog
 
 ## Your Task
