@@ -16,15 +16,20 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
-// const sess = {
-//     secret: 'Super secret secret',
-//     cookie: {},
-//     resave: false,
-//     saveUninitialized: true,
-//     store: new SequelizeStore({
-//       db: sequelize
-//     })
-//   };
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {
+    maxAge: 60 * 60 * 1000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
 
 // Sets handlebars as html to be served
 app.engine('handlebars', hbs.engine);
@@ -38,5 +43,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log(`Now listening at Heroku or on port ${PORT} at http://localhost:${PORT}`));
-  });
+  app.listen(PORT, () => console.log(`Now listening at Heroku or on port ${PORT} at http://localhost:${PORT}`));
+});
