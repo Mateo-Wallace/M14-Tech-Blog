@@ -2,8 +2,8 @@
 - [x] db
 - [x] utils
 - [x] server
+- [x] models
 
 - [ ] controllers
-- [ ] models
 - [ ] public
 - [ ] views
