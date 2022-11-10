@@ -11,3 +11,17 @@
     </p>
   </div>
 </div>
+
+<!-- Loop over each object in the comments array -->
+{{#each comments as |comment| }}
+<div class="row mb-4 project">
+  <div class="col-md-5">
+    <p>Comment by {{comment.user.username}} on {{format_date comment.date_created}}</p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{comment.content}}
+    </p>
+  </div>
+</div>
+{{/each}}
