@@ -13,6 +13,8 @@
         </p>
     </div>
 </div>
+
+<p class="custom-hidden" id="{{post.id}}">{{post.id}}</p>
 {{/each}}
 
 <div class="row mb-4 project mt-5">
@@ -22,10 +24,12 @@
     <div class="col-md-7">
         <form>
             <label>Post Title</label>
-            <input type="text" id="comment-body" class="w-100 custom-input-height" required>
+            <input type="text" id="post-title" class="w-100 custom-input-height" required>
             <label>Post Content</label>
-            <input type="text" id="comment-body" class="w-100 custom-input-height" required>
-            <button id="new-comment-form">Submit</button>
+            <input type="text" id="post-body" class="w-100 custom-input-height" required>
+            <button id="new-post-form">Submit</button>
         </form>
     </div>
 </div>
+
+<script src="/js/new.js"></script>
