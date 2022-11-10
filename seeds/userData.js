@@ -5,6 +5,7 @@ const userData = [
     username: 'foobar',
     email: 'foo@bar.com',
     password: 'foofoobarbar',
+    // new password is bloopbloop
   },
   {
     username: 'numberletter',
