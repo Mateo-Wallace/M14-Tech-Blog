@@ -10,8 +10,15 @@ router.post('/', async (req, res) => {
       password: req.body.password,
     });
 
+    const userData = await User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
+
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = userData.id
 
       res.status(200).json(dbUserData);
     });
@@ -48,6 +55,7 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = dbUserData.id
 
       res
         .status(200)
