@@ -31,16 +31,18 @@ const sess = {
   })
 };
 
+app.use(session(sess));
+
 // Sets handlebars as html to be served
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // Defines all folders to be served
-app.use(session(sess));
-app.use(routes);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now listening at Heroku or on port ${PORT} at http://localhost:${PORT}`));
