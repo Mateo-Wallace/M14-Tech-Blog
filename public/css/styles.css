@@ -27,3 +27,11 @@ header,
 .custom-bg {
     background-color: rgb(182, 37, 73);
 }
+
+.custom-input-height {
+    height: 50px;
+}
+
+.custom-hidden {
+    display: none;
+}
