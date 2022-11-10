@@ -5,23 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog Boy</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://kit.fontawesome.com/b84e779c40.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Fund My Project!</a>
+  <div class="flex-column justify-space-around ">
+    <header class="display-flex justify-space-between align-center p-2 custom-bg">
+      <h1 >
+        <i class="fa-solid fa-blog ml-4 text-light"></i>
+        <a href="/" class="text-light">Blog Boy</a>
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
+        <a href="/profile" class="text-light">profile</a> |
+        <button class="no-button mr-4 text-light" id="logout">logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a class="mr-4 text-light" href="/login">login</a>
         {{/if}}
       </nav>
     </header>

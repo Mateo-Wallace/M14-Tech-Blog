@@ -6,5 +6,10 @@
 - [x] seeds
 
 - [ ] controllers
+    - [x] api
+    - [ ] dashboard routes
+    - [x] home routes
+    - [x] index
+
 - [ ] public
 - [ ] views
