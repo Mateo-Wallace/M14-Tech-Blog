@@ -7,9 +7,9 @@ router.get('/', withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: {
-                user_id: req.session.user_id 
+                user_id: req.session.user_id
             },
-            include: [ { model: User } ]
+            include: [{ model: User }]
         });
 
         // Serialize data so the template can read it
@@ -26,31 +26,21 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // get single post
-// router.get('/post/:id', withAuth, async (req, res) => {
-//     try {
-//         const commentData = await Comment.findAll({
-//             where: {
-//                 post_id: req.params.id 
-//             },
-//             include: [ { model: User }, { model: Post }]
-//         });
+router.get('/update/:id', withAuth, async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: [{ model: User }],
+        });
 
-//         const postData = await Post.findByPk(req.params.id, {
-//             include: [ { model: User } ],
-//         });
-        
-//         const post = postData.get({ plain: true });
+        const post = postData.get({ plain: true });
 
-//         const comments = commentData.map((comment) => comment.get({ plain: true }));
-
-//         res.render('single-post', {
-//             ...post,
-//             comments,
-//             loggedIn: req.session.loggedIn
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+        res.render('edit-post', {
+            ...post,
+            loggedIn: req.session.loggedIn
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 module.exports = router;

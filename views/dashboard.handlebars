@@ -10,7 +10,7 @@
         <p>
             {{post.content}}
         </p>
-        <button data-id="{{post.id}}" class="mt-2 mb-2 update">Update</button>
+        <a href="/dashboard/update/{{post.id}}"><button class="mt-2 mb-2 update">Update</button></a>
         <button data-id="{{post.id}}" class="mt-2 mb-2 delete">Delete</button>
     </div>
 </div>
@@ -36,5 +36,4 @@
 <script src="/js/new.js"></script>
 {{#if posts}}
 <script src="/js/delete.js"></script>
-<script src="/js/update.js"></script>
 {{/if}}
