@@ -6,7 +6,7 @@ const postFormHandler = async function (event) {
     const content = document.querySelector('#post-body').value;
 
     if (content && title) {
-        await fetch(`/api/post${id}`, {
+        const response = await fetch(`/api/post/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 title,
@@ -17,7 +17,11 @@ const postFormHandler = async function (event) {
             }
         });
 
-        document.location.reload();
+        if (response.ok) {
+            document.location.reload();
+          } else {
+            alert('Failed to update post');
+          }
     }
 };
 
